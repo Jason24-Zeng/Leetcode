@@ -1,31 +1,15 @@
-Write a SQL query to delete all duplicate email entries in a table named Person, keeping only unique emails based on its smallest Id.
-
-+----+------------------+
-| Id | Email            |
-+----+------------------+
-| 1  | john@example.com |
-| 2  | bob@example.com  |
-| 3  | john@example.com |
-+----+------------------+
-Id is the primary key column for this table.
-For example, after running your query, the above Person table should have the following rows:
-
-+----+------------------+
-| Id | Email            |
-+----+------------------+
-| 1  | john@example.com |
-| 2  | bob@example.com  |
-+----+------------------+
-Note:
-
-Your output is the whole Person table after executing your sql. Use delete statement.
+窗口函数合集
+Dense_Rank
+Rank
+Row_Number
+Sum
+first_value
+count
 
 
+给某个表格命名
+with name as {Select ...}
 
-# Write your MySQL query statement below
-Delete p1.* from Person p1,
-            Person p2
-       where p1.Email = p2.Email and p1.Id > p2.Id   
-# Delete from Person where Id not in
-# (Select * from 
-#     (Select min(Id) from Person Group by Email) as p) 
+内置函数
+DateDiff
+DateAdd

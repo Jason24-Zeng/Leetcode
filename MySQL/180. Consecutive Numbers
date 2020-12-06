@@ -1,0 +1,29 @@
+Write a SQL query to find all numbers that appear at least three times consecutively.
+
++----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+For example, given the above Logs table, 1 is the only number that appears consecutively for at least three times.
+
++-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+
+# Write your MySQL query statement below
+with table1 as 
+(Select L1.Id, L1.Num as anum, L2.Num as bnum, L3.Num as cnum from Logs L1
+join Logs L2 on L1.Id + 1 = L2.Id
+join Logs L3 on L1.Id + 2 = L3.Id
+)
+select distinct anum as 'ConsecutiveNums' from table1 where anum = bnum and anum = cnum
+
